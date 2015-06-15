@@ -31,7 +31,6 @@ module.exports = {
             configParams.push('"' + param + '": "' + process.env[config[param]] + '"');
             break;
         }
-        configParams.push('"' + param + '": "' + process.env[config[param]] + '"');
       }
     }
 
