@@ -24,12 +24,8 @@ module.exports = {
       if (typeof config[param] === 'object') {
         configParams.push('"' + param + '": ' + this.dynamicConfig(config[param]));
       } else {
-        switch (typeof config[param]) {
-          case 'undefined':
-            break;
-          case 'default':
-            configParams.push('"' + param + '": "' + process.env[config[param]] + '"');
-            break;
+        if (process.env[config[param]]) {
+          configParams.push('"' + param + '": "' + process.env[config[param]] + '"');
         }
       }
     }
