@@ -1,7 +1,7 @@
 {
-  "name": "ember-cli-docker-config",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "name": "@pk4media/ember-cli-docker-config",
+  "version": "0.1.0",
+  "description": "Dynamic Configuration Support for ember-cli",
   "directories": {
     "doc": "doc",
     "test": "tests"
