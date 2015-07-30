@@ -21,12 +21,18 @@ module.exports = {
 
     var configParams = [];
     for (param in config) {
-      if (typeof config[param] === 'object') {
-        configParams.push('"' + param + '": ' + this.dynamicConfig(config[param]));
-      } else {
-        if (process.env[config[param]]) {
-          configParams.push('"' + param + '": "' + process.env[config[param]] + '"');
-        }
+      switch (typeof config[param]) {
+        case 'object':
+          configParams.push('"' + param + '": ' + this.dynamicConfig(config[param]));
+          break;
+        case 'string':
+          if (process.env[config[param]]) {
+            configParams.push('"' + param + '": "' + process.env[config[param]] + '"');
+          }
+          break;
+        case 'function':
+          configParams.push('"' + param + '": "' + config[param](process.env) + '"');
+          break;
       }
     }
 
