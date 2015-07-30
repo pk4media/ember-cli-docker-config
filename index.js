@@ -34,7 +34,7 @@ module.exports = {
         case 'function':
           value = config[param](process.env);
           if (typeof value !== 'undefined') {
-            configParams.push('"' + param + '": "' + JSON.stringify(value) + '"');
+            configParams.push('"' + param + '": ' + JSON.stringify(value));
           }
           break;
       }
