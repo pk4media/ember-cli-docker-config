@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-docker-config",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Dynamic Configuration Support for ember-cli for easier Docker builds.",
   "directories": {
     "doc": "doc",

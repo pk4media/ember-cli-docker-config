@@ -31,7 +31,7 @@ module.exports = {
           }
           break;
         case 'function':
-          configParams.push('"' + param + '": "' + config[param](process.env) + '"');
+          configParams.push('"' + param + '": "' + JSON.stringify(config[param](process.env)) + '"');
           break;
       }
     }
