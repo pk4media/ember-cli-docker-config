@@ -14,6 +14,7 @@ module.exports = {
 
   dynamicConfig: function(config) {
     var param;
+    var value;
 
     if (!config) {
       return '';
@@ -31,7 +32,10 @@ module.exports = {
           }
           break;
         case 'function':
-          configParams.push('"' + param + '": "' + JSON.stringify(config[param](process.env)) + '"');
+          value = config[param](process.env);
+          if (typeof value !== 'undefined') {
+            configParams.push('"' + param + '": "' + JSON.stringify(value) + '"');
+          }
           break;
       }
     }
